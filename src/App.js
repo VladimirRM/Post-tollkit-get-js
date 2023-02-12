@@ -1,10 +1,10 @@
-
+import Posts from './post/Posts';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-   
+   <Posts/>
     </div>
   );
 }

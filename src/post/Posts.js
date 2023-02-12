@@ -1,14 +1,17 @@
 import React from "react";
 import PostItem from "./PostItem";
-import { useDispatch } from "react-redux";
-import { getPosts, useSelector } from "./postSlice";
-const Posts = ({ Posts }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "./postSlice";
+const Posts = () => {
   const dispatch = useDispatch();
-  const post = useSelector((state) => state.post.posts);
+  const posts = useSelector((state) => state.post.posts);
   return (
     <div>
       <button onClick={() => dispatch(getPosts())}></button>
-      <PostItem />
+      {posts?.map((post) => (
+        <PostItem  key={post.title}
+        post={post}/>
+      ))}
     </div>
   );
 };
